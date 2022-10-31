@@ -1,0 +1,13 @@
+; Example of input file containing the necessary information to build the kernels
+; The ; character serves as a comment, anything after it in the same line is ignored by the program
+
+DIMENSION = 500
+KERNELS   = Sinc  Sinc
+X0        = -0.5 0.5
+Y0        =  0.0  0.0
+AMPLITUDE =  1.0  1.0
+FREQUENCY =  4.0 4.0
+DECAY     = 1.0 1.0
+COURANT   = 0.05
+NSTEPS    = 6000
+NOUT      = 10
