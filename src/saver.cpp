@@ -138,10 +138,10 @@ void SaveFile(string FNAME, int FNUMBER, vector<vector<float>>& STATE, int DIMEN
     for (int i = 0; i < DIMENSION; i++){
         for (int j = 0; j < DIMENSION; j++){
             if (j < DIMENSION -1){
-                myFile << STATE[i][j] << " , ";
+                myFile << STATE[i][j] << ",";
             }
             else{
-                myFile << STATE[i][j];
+                myFile << STATE[i][j] << "\n";
             }
         }
     }
