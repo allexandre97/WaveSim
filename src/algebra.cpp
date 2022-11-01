@@ -1,9 +1,7 @@
 #include <cmath>
 #include <omp.h>
-#include <vector>
-#include "algebra.hpp"
 
-using namespace std;
+#include "algebra.hpp"
 
 void Gradient(vector<vector<float>>& STATE,
               vector<vector<vector<float>>>& GRAD,

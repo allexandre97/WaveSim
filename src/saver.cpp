@@ -3,11 +3,13 @@
 #include <algorithm>
 #include <cmath>
 
-//#include "images.hpp"
-
 #include "saver.hpp"
 
 struct BmpHeader {
+    /*
+    Struct with the basic info needed to build a bitmap header.
+    Also has a method to write it to a file
+    */
 	char bitmapSignatureBytes[2] = {'B', 'M'};
 	uint32_t sizeOfBitmapFile; // total size of bitmap file
 	uint32_t reservedBytes = 0;
@@ -23,6 +25,11 @@ struct BmpHeader {
 };
 
 struct BmpInfoHeader {
+    /*
+    Struct with the metadata of the bitmap file.
+    Has a method to write it to file
+    */
+
 	uint32_t sizeOfThisHeader = 40;
 	int32_t width; // in pixels
 	int32_t height; // in pixels
@@ -51,6 +58,10 @@ struct BmpInfoHeader {
 };
 
 struct Pixel {
+    /*
+    Struct to define bgr values of a bitmap pixel.
+    Has a method to wirte to file.
+    */
 	uint8_t blue;
 	uint8_t green;
 	uint8_t red;
@@ -65,6 +76,9 @@ struct Pixel {
 };
 
 void Number2Color(float NUMBER, vector<int>& RGB){
+    /*
+    An awful colormap :)
+    */
     float A = -1*log(log((M_E-1)*0.5 + 1))/(0.5*0.5);
 
     RGB[2] = std::clamp(int(255*(0.5*exp(-A*NUMBER*NUMBER))), 0, 255);
@@ -76,44 +90,51 @@ void Number2Color(float NUMBER, vector<int>& RGB){
 
 
 void SaveBMP(string name, int DIMENSION, vector<vector<float>>& STATE, vector<int>& RGB){
+
+    /*
+    Method to save a simulation state to a bitmap.
+    */
 	
-    ofstream fout(name, ios::binary);
+    ofstream fout(name, ios::binary); //Open file
 
     BmpHeader bmpHeader;
-    BmpInfoHeader bmpInfoHeader;
+    BmpInfoHeader bmpInfoHeader; // Create necessary structs
     Pixel pixel;
 
+    // Save necessary info on structs.
     bmpHeader.sizeOfBitmapFile = 54 + DIMENSION*DIMENSION*3;
     bmpInfoHeader.height       = DIMENSION;
     bmpInfoHeader.width        = DIMENSION;
 
     bmpHeader.save_on_file(fout);
-    bmpInfoHeader.save_on_file(fout);
+    bmpInfoHeader.save_on_file(fout); // Save headers
 
+    // Iterate over each value and save to pixel
     for (int i = 0; i < DIMENSION; i++){
         for (int j = 0; j < DIMENSION; j++){
-            Number2Color(STATE[j][i], RGB);
+            Number2Color(STATE[j][i], RGB); // Conversion to color is done here
             pixel.red   = RGB[0];
             pixel.green = RGB[1];
             pixel.blue  = RGB[2];
-            pixel.save_on_file(fout);
-            //fout.write((char *) &pixel, 3);
+            pixel.save_on_file(fout); // Saving
         }
     }
-    fout.close();
+    fout.close(); // Closing
 
 }
 
 void SaveFile(string FNAME, int FNUMBER, vector<vector<float>>& STATE, int DIMENSION, vector<int>& BGR){
 
+    // Parent method to save a state to file
+
     string num  = to_string(FNUMBER);
-    string namebmp = "./FRAMES/"+FNAME+"_"+num+".bmp";
+    string namebmp = "./FRAMES/"+FNAME+"_"+num+".bmp"; // Define file names
     string namedat = "./FRAMES/"+FNAME+"_"+num+".dat";
 
-    std::ofstream myFile;
-
+    std::ofstream myFile; // Create and open data file
     myFile.open(namedat, std::ios::out);
- 
+
+    // Iterate over state and save to data file
     for (int i = 0; i < DIMENSION; i++){
         for (int j = 0; j < DIMENSION; j++){
             if (j < DIMENSION -1){
@@ -127,6 +148,6 @@ void SaveFile(string FNAME, int FNUMBER, vector<vector<float>>& STATE, int DIMEN
  
     myFile.close();
 
-    SaveBMP(namebmp, DIMENSION, STATE, BGR);
+    SaveBMP(namebmp, DIMENSION, STATE, BGR); // Save bitmap
 
 }

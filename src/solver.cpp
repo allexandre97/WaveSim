@@ -1,8 +1,9 @@
 #include <iostream>
 #include <fstream>
-#include <vector>
+#include <fmt/core.h>
+#include <fmt/ranges.h>
 #include "algebra.hpp"
-#include "saver.cpp"
+#include "saver.hpp"
 
 #include "solver.hpp"
 
@@ -12,6 +13,10 @@ void FirstStep(vector<vector<float>>& STATE,
                int DIMENSION,
                float dt,
                float c){
+
+    /*
+    Method to calculate the first simulation step
+    */
     
     #pragma omp parallel for
     for (int i = 0; i < DIMENSION; i++){
@@ -32,6 +37,10 @@ void NthStep(vector<vector<float>>& STATE,
              int DIMENSION,
              float dt,
              float c){
+
+    /*
+    Method to calculate the N-th simulation step
+    */
     
     int frame = STEP % 250;
     #pragma omp parallel for
@@ -65,8 +74,10 @@ void Iterate(int NSteps,
              vector<vector<vector<float>>>& GRAD2,
              vector<vector<vector<vector<float>>>>& JACOB
              ){
-
-    int folder = system("mkdir ./FRAMES/");
+    
+    /*
+    Method to iterate over the simulation steps.
+    */
     
     std::ofstream LogFile;
     LogFile.open(OutName+".log", std::ios_base::app);
@@ -105,7 +116,13 @@ void TwoWaySolver(int NSteps,
                   vector<vector<float>>& STATE,
                   int DIMENSION,
                   float C){
+    
+    /*
+    Parent method to call the solver. 
+    Allocates all needed memory and solves the equation in time.
+    */
 
+    int folder = system("mkdir ./FRAMES/");
 
     std::ofstream LogFile;
     LogFile.open(OutName+".log", std::ios_base::app);
