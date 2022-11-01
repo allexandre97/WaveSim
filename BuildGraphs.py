@@ -10,7 +10,8 @@ from optparse import OptionParser
 
 parser = OptionParser(usage       = 'python BuildGraph.py -i <filename input>  -o <filename output> -n <n_proc>',
                       prog        = 'BuildGraphs',
-                      description = 'This program builds images using output .dat files from WaveSim')
+                      description = 'This program builds images using output .dat files from WaveSim.\n'
+                                    'Must be executed in the directory where the FRAMES folder is.')
 
 parser.add_option('-i', '--inp',
                   action='store', type = 'string',
