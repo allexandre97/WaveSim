@@ -22,10 +22,9 @@ This command will take the input parameters defined on ```input.inp``` and perfo
 
 Some of this parameters can be also passed to the program at run time by giving it some flags. The flags always have priority over what was defined in the input file. In order to get an explanation on the available flags and how to use them you can call ```WaveSim -h``` or ```WaveSim --help```.
 
-As explained in the previous section, the program saves its progress by saving some files. So far, the output files are .bmp files with a terrible colormap depicting the wave and ~~totally not .txt~~ .dat files containing the values of the wave separated by commas in case you want to process them yourself to get prettier pictures. The files are saved to a folder called FRAMES in the execution directory and their base name can be changed by settinf the ```-w <filename>``` or ```--writefile <filename>``` flag at run time. In the case this is not set, it defaults to "out".
+As explained in the previous section, the program saves its progress by saving some files. So far, the output files are .bmp files with a terrible colormap depicting the wave and ~~totally not .txt~~ .dat files containing the values of the wave separated by commas as well. An auxiliary python script is also provided to make prettier pictures using said .dat files. By running ```python BuildGraphs.py -h``` you can get info on how to use the script. The files are saved to a folder called FRAMES in the execution directory and their base name can be changed by settinf the ```-w <filename>``` or ```--writefile <filename>``` flag at run time. In the case this is not set, it defaults to "out".
 
-Note that a sample file is provided so you can get a feel of how to use this program.
-
+A sample file is provided so you can get a feel of how to use this program.
 ## Compiling and Building.
 
 ### Dependencies:
