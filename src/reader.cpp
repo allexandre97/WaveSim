@@ -67,62 +67,93 @@ Params ReadFile(string FileName){
 
         if (Type == "NSTEPS"){
             for (int i = 2; i < size; i++){
+                if (line[i] == "" || line[i] != ";" || line[i][0] == *";")
+                break;
+                else
                 myParams.NSTEPS = std::stoi(line[i]);
             }
         }
 
         else if (Type == "NOUT"){
             for (int i = 2; i < size; i++){
+                if (line[i] == "" || line[i] == ";" || line[i][0] == *";")
+                break;
+                else
                 myParams.NOUT = std::stoi(line[i]);
             }
         }
 
         else if (Type == "DIMENSION"){
             for (int i = 2; i < size; i++){
+                if (line[i] == "" || line[i] == ";" || line[i][0] == *";")
+                break;
+                else
                 myParams.DIMENSION = std::stoi(line[i]);
             }
         }
 
         else if (Type == "COURANT"){
             for (int i = 2; i < size; i++){
+                if (line[i] == "" || line[i] == ";" || line[i][0] == *";")
+                break;
+                else
                 myParams.COURANT = std::stof(line[i]);
             }
         }
 
         else if (Type == "KERNELS"){
             for (int i = 2; i < size; i++){
-                string kernel = line[i];
-                std::transform(kernel.begin(), kernel.end(), kernel.begin(), ::toupper);
-                myParams.Kernels.push_back(kernel);
+                if (line[i] == "" || line[i] == ";" || line[i][0] == *";")
+                break;
+                else{
+                    string kernel = line[i];
+                    std::transform(kernel.begin(), kernel.end(), kernel.begin(), ::toupper);
+                    myParams.Kernels.push_back(kernel);
+                }
             }
         }
 
         else if (Type == "X0"){
             for (int i = 2; i < size; i++){
+                if (line[i] == "" || line[i] == ";" || line[i][0] == *";")
+                break;
+                else
                 myParams.X0.push_back(std::stof(line[i]));
             }
         }
 
         else if (Type == "Y0"){
             for (int i = 2; i < size; i++){
+                if (line[i] == "" || line[i] == ";" || line[i][0] == *";")
+                break;
+                else
                 myParams.Y0.push_back(std::stof(line[i]));
             }
         }
 
         else if (Type == "AMPLITUDE"){
             for (int i = 2; i < size; i++){
+                if (line[i] == "" || line[i] == ";" || line[i][0] == *";")
+                break;
+                else
                 myParams.AMPLITUDE.push_back(std::stof(line[i]));
             }
         }
 
         else if (Type == "FREQUENCY"){
             for (int i = 2; i < size; i++){
+                if (line[i] == "" || line[i] == ";" || line[i][0] == *";")
+                break;
+                else
                 myParams.FREQUENCY.push_back(std::stof(line[i]));
             }
         }
 
         else if (Type == "DECAY"){
             for (int i = 2; i < size; i++){
+                if (line[i] == "" || line[i] == ";" || line[i][0] == *";")
+                break;
+                else
                 myParams.DECAY.push_back(std::stof(line[i]));
             }
         }
