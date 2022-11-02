@@ -67,7 +67,7 @@ Params ReadFile(string FileName){
 
         if (Type == "NSTEPS"){
             for (int i = 2; i < size; i++){
-                if (line[i] == "" || line[i] != ";" || line[i][0] == *";")
+                if (line[i] == "" || line[i] == ";" || line[i][0] == *";")
                 break;
                 else
                 myParams.NSTEPS = std::stoi(line[i]);
