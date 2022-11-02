@@ -22,9 +22,10 @@ This command will take the input parameters defined on ```input.inp``` and perfo
 
 Some of this parameters can also be passed to the program at run time by providing it with some flags. The flags **always** have priority over what was defined in the input file. In order to get an explanation on the available flags and how to use them you can call ```WaveSim -h``` or ```WaveSim --help```.
 
-As explained before, the program saves its progress by creating some files. So far, the output files are .bmp files with a terrible colormap depicting the wave as well as ~~totally not .txt~~ .dat files containing the values of the wave separated by commas. An auxiliary python script is also provided to make prettier pictures using said .dat files. By running ```python BuildGraphs.py -h``` you can get info on how to use the script. The files are saved to a folder called FRAMES in the execution directory and their base name can be changed by setting the ```-w <filename>``` or ```--writefile <filename>``` flag at run time. In the case this is not set, it defaults to "out".
+As explained before, the program saves its progress by creating some files. So far, the output files are .bmp files with a terrible colormap depicting the wave as well as ~~totally not .txt~~ .dat files containing the values of the wave separated by commas. These files are saved into a folder called FRAMES in the execution directory and their base name can be changed by setting the ```-w <filename>``` or ```--writefile <filename>``` flag at run time. In the case this is not set, their name defaults to "out.x". An auxiliary python script is also provided to make prettier pictures using said .dat files. By running ```python BuildGraphs.py -h``` you can get info on how to use the script. Once you generate all the pictures, you can compile them into a video by using a tool like [ffmpeg](https://ffmpeg.org/).
 
 A sample file is provided so you can get a feel of how to use this program.
+
 ## Compiling and Building.
 
 ### Dependencies:
