@@ -1,2 +1,0 @@
-/usr/bin/ar qc libAlgebra.a  CMakeFiles/Algebra.dir/algebra.cpp.o
-/usr/bin/ranlib libAlgebra.a

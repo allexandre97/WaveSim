@@ -1,2 +1,0 @@
-/usr/bin/ar qc libBuilder.a  CMakeFiles/Builder.dir/builder.cpp.o
-/usr/bin/ranlib libBuilder.a
