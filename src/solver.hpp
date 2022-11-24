@@ -7,4 +7,5 @@ void TwoWaySolver(int NSteps,
                   std::string OutName,
                   vector<vector<float>>& STATE,
                   int DIMENSION,
-                  float C);
+                  float C,
+                  std::string BOUNDARY);

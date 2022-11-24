@@ -9,6 +9,7 @@ struct Params{
     int NOUT;
     int DIMENSION;
     float COURANT;
+    std::string BOUNDARY;
     vector<string> Kernels;
     vector<float> X0;
     vector<float> Y0;
