@@ -4,7 +4,6 @@
 
 This is a small package able to numerically solve the wave equation in a 2D plane. The philosophy behind its usage is loosely inspired by programs like [GROMACS](https://www.gromacs.org/) or [Gaussian](https://gaussian.com/), where you give an input file to the software to then obtain simulation results.
 
-<<<<<<< HEAD
 For now, the program is able to perform simulations on flat, square surfaces. The program builds user-defined kernels over them as starting conditions and solves the [differential equation describing simple waves](https://en.wikipedia.org/wiki/Wave_equation) for a specified number of steps. The solver is based on the [Finite Difference Method](https://en.wikipedia.org/wiki/Finite_difference_method), more specifically using the centered difference scheme.
 
 Here is an example usage of the program:
