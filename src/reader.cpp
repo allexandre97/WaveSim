@@ -101,6 +101,19 @@ Params ReadFile(string FileName){
             }
         }
 
+        else if (Type == "BOUNDARY"){
+            for (int i = 2; i < size; i++){
+                if (line[i] == "" || line[i] == ";" || line[i][0] == *";")
+                break;
+                else{
+                    string bound = line[i];
+                    std::transform(bound.begin(), bound.end(), bound.begin(), ::toupper);
+                    myParams.BOUNDARY = bound;
+                }
+                
+            }
+        }
+
         else if (Type == "KERNELS"){
             for (int i = 2; i < size; i++){
                 if (line[i] == "" || line[i] == ";" || line[i][0] == *";")

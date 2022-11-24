@@ -66,8 +66,8 @@ void Iterate(int NSteps,
              vector<vector<float>>& STATE,
              vector<vector<float>>& OLDSTATE,
              vector<vector<float>>& NEWSTATE,
-             vector<vector<float>>& LAPL
-             ){
+             vector<vector<float>>& LAPL,
+             std::string BOUNDARY){
     
     /*
     Method to iterate over the simulation steps.
@@ -80,7 +80,7 @@ void Iterate(int NSteps,
     int percent;
     for (int n = 1; n < NSteps+1; n++){
 
-        Laplacian(STATE, LAPL, DIMENSION, dx*4);
+        Laplacian(STATE, LAPL, DIMENSION, dx*4, BOUNDARY);
         NthStep(STATE, OLDSTATE, LAPL, NEWSTATE, n, DIMENSION, dt, c);
 
         OLDSTATE = STATE;
@@ -109,7 +109,8 @@ void TwoWaySolver(int NSteps,
                   std::string OutName,
                   vector<vector<float>>& STATE,
                   int DIMENSION,
-                  float C){
+                  float C,
+                  std::string BOUNDARY){
     
     /*
     Parent method to call the solver. 
@@ -157,7 +158,7 @@ void TwoWaySolver(int NSteps,
     std::cout << msg+"\r";
     LogFile << msg+"\n";
     
-    Laplacian(STATE, LAPL, DIMENSION, dx*4);
+    Laplacian(STATE, LAPL, DIMENSION, dx*4, BOUNDARY);
     FirstStep(STATE, LAPL, NEWSTATE, DIMENSION, dt, c);
 
     SaveFile(OutName, 1, STATE, DIMENSION, BGR);
@@ -167,6 +168,6 @@ void TwoWaySolver(int NSteps,
 
     LogFile.close();
 
-    Iterate(NSteps, NOut, OutName, msg, DIMENSION, dx, dt, c, BGR, STATE, OLDSTATE, NEWSTATE, LAPL);
+    Iterate(NSteps, NOut, OutName, msg, DIMENSION, dx, dt, c, BGR, STATE, OLDSTATE, NEWSTATE, LAPL, BOUNDARY);
 }
 
