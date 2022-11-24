@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alexandre/Documentos/WavesCpp/src/algebra.hpp
+vector
+-
+
+/home/alexandre/Documentos/WavesCpp/src/saver.hpp
+vector
+-
+
+/home/alexandre/Documentos/WavesCpp/src/solver.cpp
+iostream
+-
+fstream
+-
+fmt/core.h
+-
+fmt/ranges.h
+-
+algebra.hpp
+/home/alexandre/Documentos/WavesCpp/src/algebra.hpp
+saver.hpp
+/home/alexandre/Documentos/WavesCpp/src/saver.hpp
+solver.hpp
+/home/alexandre/Documentos/WavesCpp/src/solver.hpp
+
+/home/alexandre/Documentos/WavesCpp/src/solver.hpp
+vector
+-
+

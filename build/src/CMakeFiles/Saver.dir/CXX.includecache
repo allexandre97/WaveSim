@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alexandre/Documentos/WavesCpp/src/saver.cpp
+iostream
+-
+fstream
+-
+algorithm
+-
+cmath
+-
+saver.hpp
+/home/alexandre/Documentos/WavesCpp/src/saver.hpp
+
+/home/alexandre/Documentos/WavesCpp/src/saver.hpp
+vector
+-
+
