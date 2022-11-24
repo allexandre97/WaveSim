@@ -14,6 +14,7 @@ int DIMENSION, NSTEPS, NOUT, NTHREADS;
 std::string InFile = "";
 std::string OutName = "";
 double COURANT;
+std::string BOUNDARY = "";
 Params myPars;
 
 void PrintHelp(){
@@ -46,6 +47,7 @@ void Summary(){
                                   "Output frequency         --> {}\n"
                                   "Simulation Size          --> {}x{} points\n"
                                   "Courant Number           --> {}\n"
+                                  "Boundary Conditions      --> {}\n"
                                   "Kernel Types             --> {}\n"
                                   "Kernel Centers [X],[Y]   --> {}, {}\n"
                                   "Kernel Amplitudes        --> {}\n"
@@ -56,6 +58,7 @@ void Summary(){
                                   NSTEPS, NOUT,
                                   DIMENSION, DIMENSION,
                                   COURANT,
+                                  BOUNDARY,
                                   myPars.Kernels,
                                   myPars.X0, myPars.Y0,
                                   myPars.AMPLITUDE,
@@ -103,6 +106,11 @@ void CatchMissing(){
         std::cout << "Courant number not set!\n"
                      "Using Default value --> 0.05" << std::endl;
         COURANT = 0.05F;
+    }
+    if (myPars.BOUNDARY == ""){
+        std::cout << "Boundary conditions not set!\n"
+                     "This is a mandatory parameter :(" << std::endl;
+        miss = 1;
     }
     if (OutName == ""){
         std::cout << "Output name not set!\n"
@@ -270,7 +278,7 @@ int main(int argc, char* argv[]){
                                         OutName);
     
     // Solve simulation
-    TwoWaySolver(NSTEPS, NOUT, OutName, STATE, DIMENSION, COURANT);
+    TwoWaySolver(NSTEPS, NOUT, OutName, STATE, DIMENSION, COURANT, myPars.BOUNDARY);
 
     return 0;
 }

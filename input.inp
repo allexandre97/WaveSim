@@ -3,13 +3,14 @@
 ; For the <string> parameters it doesnt matter if you use uppercase or lowercase.
         
                       
-NSTEPS    = 6000 ; Number of steps to perform the simulation for
-NOUT      = 10   ; Number of steps between file outputs
-DIMENSION = 500  ; Number of lateral points in the simulation space. 
-KERNELS   = Sinc ; Type of kernel to use. Sinc and Sin are available
-X0        = 0.0  ; X coordinate for the kernel center
-Y0        = 0.0  ; Y coordinate for the kernel center
-AMPLITUDE = 1.0  ; Amplitude (intensity) of the kernel
-FREQUENCY = 4.0  ; Frequency of the kernel
-DECAY     = 1.0  ; Decay of the kernel
-COURANT   = 0.05 ; Courant number. Sets "speed" of the simulation
+NSTEPS    = 6000    ; Number of steps to perform the simulation for
+NOUT      = 10      ; Number of steps between file outputs
+DIMENSION = 500     ; Number of lateral points in the simulation space. 
+KERNELS   = Sinc    ; Type of kernel to use. Sinc and Sin are available
+X0        = 0.0     ; X coordinate for the kernel center
+Y0        = 0.0     ; Y coordinate for the kernel center
+AMPLITUDE = 1.0     ; Amplitude (intensity) of the kernel
+FREQUENCY = 4.0     ; Frequency of the kernel
+DECAY     = 1.0     ; Decay of the kernel
+COURANT   = 0.05    ; Courant number. Sets "speed" of the simulation
+BOUNDARY  = neumann ; Reflective boundary conditions
