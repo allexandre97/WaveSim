@@ -4,6 +4,8 @@
 
 This is a small package able to numerically solve the wave equation in a 2D plane. The philosophy behind its usage is loosely inspired by programs like [GROMACS](https://www.gromacs.org/) or [Gaussian](https://gaussian.com/), where you give an input file to the software to then obtain simulation results.
 
+For now, the program is able to perform simulations on flat, square surfaces. The program builds user-defined kernels over them as starting conditions and solves the [differential equation describing simple waves](https://en.wikipedia.org/wiki/Wave_equation) for a specified number of steps. The solver is based on the [Finite Difference Method](https://en.wikipedia.org/wiki/Finite_difference_method), more specifically using the centered difference scheme.
+
 Here is an example usage of the program:
 ```WaveSim -f input.inp -t 6```
 This command will take the input parameters defined on ```input.inp``` and perform the simulation using 6 OpenMP threads. The input file can have any name and extension yu want, but should follow some writing conventions so the program can read them, namely: ```;``` symbols are interpreted as comments and therefore anything after them in the same line are not parsed to the program, and the parameters are defined as ```<paramenter> = <value>```. If a parameter can accept more than one value, these should be separated by just blank spaces. The available parameters are:
