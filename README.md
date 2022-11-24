@@ -4,7 +4,7 @@
 
 This is a small package able to numerically solve the wave equation in a 2D plane. The philosophy behind the usage of this program is loosely inspired by programs like [GROMACS](https://www.gromacs.org/) or [Gaussian](https://gaussian.com/), where you give an input file to the software to then obtain simulation results.
 
-For now, the program is able to perform simulations on flat, square surfaces. The program builds user-defined kernels over them as starting conditions and solves the [differential equation describing simple waves](https://en.wikipedia.org/wiki/Wave_equation) for a specified number of steps. The solver is based on the [Finite Difference Method](https://en.wikipedia.org/wiki/Finite_difference_method), more specifically using the centered difference scheme. The only boundary conditions that the solver accepts so far are [Periodic](https://en.wikipedia.org/wiki/Periodic_boundary_conditions) ones, but most surely at least a reflective case like [Neumann conditions](https://en.wikipedia.org/wiki/Neumann_boundary_condition) will be added.
+For now, the program is able to perform simulations on flat, square surfaces. The program builds user-defined kernels over them as starting conditions and solves the [differential equation describing simple waves](https://en.wikipedia.org/wiki/Wave_equation) for a specified number of steps. The solver is based on the [Finite Difference Method](https://en.wikipedia.org/wiki/Finite_difference_method), more specifically using the centered difference scheme.
 
 Here is an example usage of the program:
 ```WaveSim -f input.inp -t 6```
@@ -17,6 +17,7 @@ This command will take the input parameters defined on ```input.inp``` and perfo
 - FREQUENCY (float)  --> The frequency of the kernel. Accepts more than one value.
 - DECAY     (float)  --> The decay for the kernel. Accepts more than one value.
 - COURANT   (float)  --> The [Courant number](https://en.wikipedia.org/wiki/Courant%E2%80%93Friedrichs%E2%80%93Lewy_condition), governs the "speed" of the simulation. Should not be bigger than 1 to ensure numerical stability and if set that way it will be downscaled to 0.95.
+- BOUNDARY  (string) --> The boundary conditions for the solver. For now, [periodic](https://en.wikipedia.org/wiki/Periodic_boundary_conditions) and [Neumann](https://en.wikipedia.org/wiki/Neumann_boundary_condition) (reflective) boundary conditions are available. 
 - NSTEPS    (int)    --> The number of steps to perform the simulation for.
 - NOUT      (int)    --> The number of steps between file saves.
 
