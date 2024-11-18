@@ -1,0 +1,16 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: WaveSim
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Alexandre
+    family-names: Blanco-González
+    email: allexandre97@gmail.com
+    orcid: 'https://orcid.org/0000-0001-8593-5881'
+repository-code: 'https://github.com/allexandre97/WaveSim'
+license: GPL-3.0
